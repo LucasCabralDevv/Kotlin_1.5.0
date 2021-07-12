@@ -48,6 +48,49 @@ fun removingElements() {
 fun updatingElements() {
     val myList = mutableListOf("L", "u", "c", "a", "T")
     myList[myList.lastIndex] = "s" //[L, u, c, a, s]
+
+    val fruits = mutableListOf("apple", "orange", "banana")
+    fruits.fill("avocado") //[avocado, avocado, avocado]
+    fruits.clear() //[]
+}
+
+fun shufflingSortingReversingLists() {
+    val myList = listOf(3, 7, 2, 1, 8, 9)
+    println(myList.shuffled()) //[9, 3, 2, 1, 7, 8]
+    println(myList.sorted()) //[1, 2, 3, 7, 8, 9]
+    println(myList.reversed()) //[9, 8, 1, 2, 7, 3]
+    println(myList) //[3, 7, 2, 1, 8, 9]
+
+    val myMutableList = mutableListOf(3, 7, 2, 1, 8, 9)
+    myMutableList.shuffle()
+    println(myMutableList) //[7, 9, 1, 8, 2, 3]
+}
+
+fun retainingOrRemovingElements() {
+    val numbers = mutableListOf(4, 9, 7, 2, 5, 3)
+    numbers.removeAll { it < 5 }
+    println(numbers) //[9, 7, 5]
+
+    val letters = mutableListOf<Char>('a', 'b', 'c', 'd', '5', 'e', '2')
+    letters.retainAll { it.isLetter() }
+    println(letters) //[a, b, c, d, e]
+}
+
+fun viewsOnLists() {
+    val fruits = mutableListOf("apple", "orange", "banana", "melon", "grape")
+    val sub = fruits.subList(1, 4) //[orange, banana, melon] fromIndex 1, toIndex 4
+    fruits[1] = "papaya" // println(sub) -> [papaya, banana, melon]
+    sub[2] = "lemon" // println(sub) -> [papaya, banana, lemon]
+    println(fruits) // [apple, papaya, banana, lemon, grape]
+    println(sub) // [papaya, banana, lemon]
+    sub.fill("sugar")
+    println(fruits) // [apple, sugar, sugar, sugar, grape]
+
+    val fruits2 = mutableListOf("apple", "orange", "banana", "melon", "grape")
+    val stiurf = fruits2.asReversed() // [grape, melon, banana, orange, apple]
+    fruits2[1] = "papaya" // println(stiurf) -> [grape, melon, banana, papaya, apple]
+    stiurf[2] = "lemon" // println(stiurf) -> [grape, melon, lemon, papaya, apple]
+    println(fruits2) // [apple, papaya, lemon, melon, grape]
 }
 
 fun main() {
